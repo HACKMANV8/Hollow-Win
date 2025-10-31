@@ -9,6 +9,7 @@ import Gamify from '/src/pages/Gamify.jsx';
 import MyStories from '/src/pages/MyStories.jsx';
 import Premium from '/src/pages/Premium.jsx';
 import Parents from '/src/pages/Parents.js';
+import GrandmaStories from '/src/pages/GrandmaStories';
 
 const routes = {
   '/': Home,
@@ -20,6 +21,7 @@ const routes = {
   '/my-stories': MyStories,
   '/premium': Premium,
   '/parents': Parents,
+  '/grandma-stories': GrandmaStories,
 };
 
 export default function App() {
