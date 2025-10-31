@@ -44,10 +44,67 @@
 
 .content {
   display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 2rem;
+  grid-template-columns: 280px 1fr 350px;
+  gap: 1.5rem;
   margin-top: 1rem;
 }
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.uploadPlaceholder {
+  background: #1e293b;
+  border-radius: 16px;
+  border: 2px dashed #4f46e5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  height: 300px;
+}
+
+.uploadPlaceholder:hover {
+  background: #334155;
+  border-color: #818cf8;
+  transform: scale(1.02);
+}
+
+.uploadPlaceholder span {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.uploadPlaceholder p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.videoPreview {
+  width: 100%;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0f172a;
+  border: 1px solid #334155;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.previewVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 
 .videoSection {
   background: #1e293b; /* Dark blue card */
@@ -366,9 +423,24 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .content {
+    grid-template-columns: 1fr 350px;
+  }
+  
+  .leftColumn {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+}
+
 @media (max-width: 1024px) {
   .content {
     grid-template-columns: 1fr;
+  }
+  
+  .leftColumn {
+    flex-direction: column;
   }
   
   .sidebar {

@@ -18,7 +18,11 @@ const GrandmaStories = () => {
   const [currentStory, setCurrentStory] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showNewStoryForm, setShowNewStoryForm] = useState(false);
+  const [uploadedVideo, setUploadedVideo] = useState(null);
+  const [uploadedPDF, setUploadedPDF] = useState(null);
   const videoRef = useRef(null);
+  const fileInputRef = useRef(null);
+  const pdfInputRef = useRef(null);
 
   const handleStorySelect = (story) => {
     setCurrentStory(story);
@@ -49,6 +53,30 @@ const GrandmaStories = () => {
     }
   };
 
+  const handleVideoUpload = (e) => {
+    const file = e.target.files[0];
+    if (file && file.type.startsWith('video/')) {
+      const videoURL = URL.createObjectURL(file);
+      setUploadedVideo(videoURL);
+    }
+  };
+
+  const handlePDFUpload = (e) => {
+    const file = e.target.files[0];
+    if (file && file.type === 'application/pdf') {
+      setUploadedPDF(file);
+    }
+  };
+
+  const handleGenerateVideo = async () => {
+    if (!uploadedPDF) {
+      alert('Please upload a PDF file first');
+      return;
+    }
+    // TODO: Implement D-ID API integration
+    alert('Video generation will be implemented with D-ID API');
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -60,6 +88,40 @@ const GrandmaStories = () => {
       </header>
 
       <div className={styles.content}>
+        <div className={styles.leftColumn}>
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleVideoUpload}
+            accept="video/*"
+            style={{ display: 'none' }}
+          />
+          <input
+            type="file"
+            ref={pdfInputRef}
+            onChange={handlePDFUpload}
+            accept=".pdf"
+            style={{ display: 'none' }}
+          />
+          
+          {uploadedVideo ? (
+            <div className={styles.videoPreview}>
+              <video
+                src={uploadedVideo}
+                className={styles.previewVideo}
+                loop
+                autoPlay
+                muted
+              />
+            </div>
+          ) : (
+            <div className={styles.uploadPlaceholder} onClick={() => fileInputRef.current?.click()}>
+              <span>📹</span>
+              <p>Click to upload video</p>
+            </div>
+          )}
+        </div>
+
         <div className={styles.videoSection}>
           <div className={styles.videoContainer}>
             {currentStory ? (
