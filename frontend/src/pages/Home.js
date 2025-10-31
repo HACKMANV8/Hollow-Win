@@ -13,7 +13,7 @@ export default function Home({ navigate }) {
           React.createElement('div', { className: 'hero-content' },
             React.createElement('div', { className: 'hero-cta-row' },
               React.createElement('a', { className: 'btn btn-pill btn-red', href: '#/video' }, 'Vid Generate'),
-              React.createElement('a', { className: 'btn btn-pill btn-yellow', href: '#/stories' }, 'Story Generate'),
+              React.createElement('a', { className: 'btn btn-pill btn-yellow', href: '#/story-setup' }, 'Story Generate'),
               React.createElement('a', { className: 'btn btn-pill btn-green', href: '#/dashboard' }, 'Parent Dashboard')
             )
           )
@@ -82,11 +82,15 @@ function CardBlue() {
 
 function CardGreen() {
   return (
-    React.createElement('article', { className: 'card card-green' },
+    React.createElement('article', { 
+      className: 'card card-green',
+      onClick: () => (window.location.hash = '/grandma-stories'),
+      style: { cursor: 'pointer' }
+    },
       React.createElement('div', { className: 'card-content' },
         React.createElement('h2', { className: 'card-title' }, 'Grandma’s Stories'),
         React.createElement('p', { className: 'muted' }, 'Listen to tales of wisdom!'),
-        React.createElement('button', { className: 'play' }, '▶')
+        React.createElement('div', { className: 'play' }, '▶')
       ),
       React.createElement('div', { className: 'sticker' }, '👵')
     )
