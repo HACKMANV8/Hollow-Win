@@ -1,4 +1,4 @@
-import React from 'https://esm.sh/react@18.3.1';
+import React from 'react';
 import { describeImage } from '/src/lib/api.js';
 
 export default function PictureMagic() {

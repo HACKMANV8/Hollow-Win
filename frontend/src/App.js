@@ -1,5 +1,5 @@
 // SPA shell with tiny hash router
-import React from 'https://esm.sh/react@18.3.1';
+import React from 'react';
 import Home from '/src/pages/Home.js';
 import Stories from '/src/pages/Stories.js';
 import PictureMagic from '/src/pages/PictureMagic.js';
