@@ -51,10 +51,11 @@ function Header({ navigate }) {
         )
       ),
       React.createElement('nav', { className: 'main-nav' },
-        React.createElement('a', { className: 'btn btn-pill btn-secondary', href: '#/stories' }, 'Story Generate'),
-        React.createElement('a', { className: 'btn btn-pill btn-green', href: '#/dashboard' }, 'Parent Dashboard'),
-        React.createElement('a', { className: 'nav-link', href: '#/security' }, 'Paskeald'),
-        React.createElement('a', { className: 'nav-link', href: '#/schools' }, 'Schools')
+        React.createElement('a', { className: 'btn btn-pill btn-secondary', href: '#/' }, 'HOME'),
+        React.createElement('a', { className: 'nav-link', href: '#/my-stories' }, 'MY STORIES'),
+        React.createElement('a', { className: 'nav-link', href: '#/premium' }, 'PREMIUM'),
+        React.createElement('a', { className: 'btn btn-pill btn-yellow', href: '#/gamify' }, 'GAMIFY'),
+        React.createElement('a', { className: 'btn btn-pill btn-green', href: '#/parents' }, 'PARENTS DASHBOARD')
       )
     )
   );

@@ -5,6 +5,10 @@ import Stories from '/src/pages/Stories.js';
 import PictureMagic from '/src/pages/PictureMagic.js';
 import StorySetup from '/src/pages/StorySetup.js';
 import StoryStudio from '/src/pages/StoryStudio.js';
+import Gamify from '/src/pages/Gamify.js';
+import MyStories from '/src/pages/MyStories.js';
+import Premium from '/src/pages/Premium.js';
+import Parents from '/src/pages/Parents.js';
 
 const routes = {
   '/': Home,
@@ -12,6 +16,10 @@ const routes = {
   '/picture-magic': PictureMagic,
   '/story-setup': StorySetup,
   '/story-studio': StoryStudio,
+  '/gamify': Gamify,
+  '/my-stories': MyStories,
+  '/premium': Premium,
+  '/parents': Parents,
 };
 
 export default function App() {
