@@ -1,0 +1,138 @@
+.storyStudio {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Comic Sans MS', 'Arial Rounded MT', sans-serif;
+  color: #333;
+}
+
+h2 {
+  color: #6a4c93;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.promptInput {
+  padding: 15px;
+  border: 2px solid #b19cd9;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.promptInput:focus {
+  border-color: #8a5a44;
+  box-shadow: 0 0 8px rgba(138, 90, 68, 0.3);
+}
+
+.generateButton {
+  background-color: #8a5a44;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+}
+
+.generateButton:hover:not(:disabled) {
+  background-color: #6d4635;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.generateButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.errorMessage {
+  color: #e74c3c;
+  text-align: center;
+  margin: 15px 0;
+  padding: 10px;
+  background-color: #fde8e8;
+  border-radius: 8px;
+  border-left: 4px solid #e74c3c;
+}
+
+.outputSection {
+  margin-top: 30px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.storyPreview, .videoContainer {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  border: 1px solid #eaeaea;
+}
+
+.storyPreview h3, .videoPreview h3 {
+  color: #6a4c93;
+  margin-top: 0;
+  border-bottom: 2px dashed #e0e0e0;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.storyText {
+  line-height: 1.8;
+  font-size: 16px;
+  color: #444;
+}
+
+.storyText p {
+  margin-bottom: 15px;
+}
+
+.videoPlaceholder {
+  background: #f9f5ff;
+  border: 2px dashed #b19cd9;
+  border-radius: 10px;
+  padding: 40px 20px;
+  text-align: center;
+  color: #6a4c93;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .input-section {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .promptInput {
+    flex: 1;
+  }
+  
+  .generateButton {
+    width: auto;
+    padding: 12px 30px;
+  }
+}
