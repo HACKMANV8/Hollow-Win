@@ -3,11 +3,11 @@ import React from 'react';
 import Home from '/src/pages/Home.js';
 import Stories from '/src/pages/Stories.js';
 import PictureMagic from '/src/pages/PictureMagic.js';
-import StorySetup from '/src/pages/StorySetup.js';
-import StoryStudio from '/src/pages/StoryStudio.js';
-import Gamify from '/src/pages/Gamify.js';
-import MyStories from '/src/pages/MyStories.js';
-import Premium from '/src/pages/Premium.js';
+import StorySetup from '/src/pages/StorySetup.jsx';
+import StoryStudio from '/src/components/StoryStudio/StoryStudio.jsx';
+import Gamify from '/src/pages/Gamify.jsx';
+import MyStories from '/src/pages/MyStories.jsx';
+import Premium from '/src/pages/Premium.jsx';
 import Parents from '/src/pages/Parents.js';
 
 const routes = {

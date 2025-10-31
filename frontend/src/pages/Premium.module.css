@@ -1,0 +1,192 @@
+.premiumPage {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #ffcece;
+  line-height: 1.6;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.pricingCard {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.5rem;
+  border: 1px solid #eaeaea;
+}
+
+.pricingHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.pricingHeader h2 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+  color: #1a1a1a;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0.5rem 0;
+}
+
+.price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.pricingHeader p {
+  color: #666;
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+}
+
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #333;
+}
+
+.featureItem:last-child {
+  border-bottom: none;
+}
+
+.checkIcon {
+  color: #4CAF50;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+.ctaButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 1rem;
+}
+
+.ctaButton:hover {
+  background: #333;
+}
+
+.arrowIcon {
+  margin-left: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.ctaButton:hover .arrowIcon {
+  transform: translateX(3px);
+}
+
+.note {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.additionalInfo {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.additionalInfo h3 {
+  font-size: 1.5rem;
+  margin: 0 0 1rem;
+  color: #1a1a1a;
+}
+
+.additionalInfo > p {
+  color: #666;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.benefitItem {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.benefitIcon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.benefitItem h4 {
+  margin: 0.5rem 0;
+  color: #1a1a1a;
+  font-size: 1.1rem;
+}
+
+.benefitItem p {
+  color: #666;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .premiumPage {
+    max-width: 800px;
+    padding: 3rem 2rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .benefits {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

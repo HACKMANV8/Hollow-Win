@@ -1,104 +1,107 @@
-import React from 'react';
-import StoryStudio from '../components/StoryStudio/StoryStudio';
+import React, { useState } from 'react';
 import styles from './Gamify.module.css';
 
-// Navigation Components
-function NavBrand() {
-  return (
-    <div className="brand">
-      <div className="brand-mark">🫧</div>
-      <div className="brand-text">
-        <div className="brand-title">AAVYA AI</div>
-        <div className="brand-sub">Learning feels like magic.</div>
-      </div>
-    </div>
-  );
-}
+const games = [
+  {
+    id: 1,
+    title: 'Memory Match',
+    description: 'Test your memory with this fun matching game!',
+    icon: '🧠',
+    color: '#FF9F43',
+    category: 'Brain Games'
+  },
+  {
+    id: 2,
+    title: 'Word Search',
+    description: 'Find hidden words in a grid of letters!',
+    icon: '🔍',
+    color: '#26C6DA',
+    category: 'Word Games'
+  },
+  {
+    id: 3,
+    title: 'Math Challenge',
+    description: 'Solve math problems against the clock!',
+    icon: '➕',
+    color: '#66BB6A',
+    category: 'Educational'
+  },
+  {
+    id: 4,
+    title: 'Puzzle Master',
+    description: 'Put the pieces together to complete the picture!',
+    icon: '🧩',
+    color: '#AB47BC',
+    category: 'Puzzles'
+  },
+  {
+    id: 5,
+    title: 'Trivia Time',
+    description: 'Test your knowledge with fun trivia questions!',
+    icon: '🎯',
+    color: '#FF7043',
+    category: 'Trivia'
+  },
+  {
+    id: 6,
+    title: 'Word Builder',
+    description: 'Create as many words as you can from given letters!',
+    icon: '🔤',
+    color: '#26A69A',
+    category: 'Word Games'
+  }
+];
 
-function NavLinks() {
-  return (
-    <nav className="main-nav">
-      <a className="nav-link" href="#/">HOME</a>
-      <a className="nav-link" href="#/my-stories">MY STORIES</a>
-      <a className="nav-link" href="#/premium">PREMIUM</a>
-      <a className="btn btn-pill btn-yellow" href="#/gamify">GAMIFY</a>
-      <a className="btn btn-pill btn-green" href="#/parents">PARENTS DASHBOARD</a>
-    </nav>
-  );
-}
-
-function Header() {
-  return (
-    <header className="site-header">
-      <NavBrand />
-      <NavLinks />
-    </header>
-  );
-}
-
-// Main Component
-export default function Gamify() {
-  const worlds = [
-    { slug: 'storya', emoji: '🌎', name: 'Planet Storya', theme: 'Basic learning stories', unlock: 'Free' },
-    { slug: 'thinka', emoji: '🔬', name: 'Planet Thinka', theme: 'Logic & science stories', unlock: 'After 5 quizzes' },
-    { slug: 'dramia', emoji: '🎭', name: 'Planet Dramia', theme: 'Interactive story choices', unlock: '20 starlight points' },
-    { slug: 'rhymia', emoji: '🎶', name: 'Planet Rhymia', theme: 'Rhyming & poetry stories', unlock: 'After 10 stories' },
-    { slug: 'puzzlia', emoji: '🧩', name: 'Planet Puzzlia', theme: 'Puzzle-based stories', unlock: 'Coming soon' },
-  ];
+const Gamify = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+  
+  const categories = ['All', ...new Set(games.map(game => game.category))];
+  
+  const filteredGames = activeCategory === 'All' 
+    ? games 
+    : games.filter(game => game.category === activeCategory);
 
   return (
     <div className={styles.gamifyContainer}>
-      <Header />
-      
-      {/* Story Studio Section */}
-      <section className={styles.storyStudioSection}>
-        <h1>Story Studio</h1>
-        <p>Create magical stories with AI and watch them come to life!</p>
-        <StoryStudio />
-      </section>
-      
-      {/* Games Section */}
-      <section className={styles.gamesSection}>
-        <header className={styles.gamifyHeader}>
-          <h1>AAVYA Galaxy</h1>
-          <p>Travel across playful worlds as you learn!</p>
-        </header>
-        
-        <div className={styles.worldsGrid}>
-          {worlds.map((world) => (
-            <article key={world.slug} className={styles.planetCard}>
-              <div className={styles.planetEmoji}>{world.emoji}</div>
-              <h3>{world.name}</h3>
-              <div className={styles.tag}>{world.theme}</div>
-              <div className={styles.unlock}>{world.unlock}</div>
-            </article>
-          ))}
+      <header className={styles.header}>
+        <h1>Games</h1>
+        <div className={styles.searchBar}>
+          <input type="text" placeholder="Search games..." />
+          <span role="img" aria-label="search">🔍</span>
         </div>
-      </section>
+      </header>
       
-      {/* Kid Dashboard Section */}
-      <section className={styles.kidDashboard}>
-        <h2>Kid Dashboard</h2>
-        <div className={styles.islands}>
-          {['Reading', 'Science', 'Logic', 'Music'].map((subject, index) => (
-            <div key={subject} className={styles.island}>
-              <div className={styles.islandEmoji}>
-                {['📖', '🧪', '🧩', '🎵'][index]}
-              </div>
-              <div className={styles.islandName}>{subject}</div>
+      <div className={styles.categories}>
+        {categories.map(category => (
+          <button
+            key={category}
+            className={`${styles.categoryBtn} ${activeCategory === category ? styles.active : ''}`}
+            onClick={() => setActiveCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+      
+      <div className={styles.gamesGrid}>
+        {filteredGames.map(game => (
+          <div key={game.id} className={styles.gameCard} style={{ '--card-color': game.color }}>
+            <div className={styles.gameIcon} style={{ backgroundColor: `${game.color}20` }}>
+              {game.icon}
             </div>
-          ))}
-        </div>
-        <div className={styles.kidRow}>
-          <div className={styles.kidCard}>Animated buddies say hi! 👋</div>
-          <div className={styles.kidCard + ' ' + styles.glow}>Unlocked: New Chapter! ✨</div>
-        </div>
-        <div className={styles.storyGallery}>
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className={styles.comicTile}>📚</div>
-          ))}
-        </div>
-      </section>
+            <div className={styles.gameInfo}>
+              <h3>{game.title}</h3>
+              <p>{game.description}</p>
+              <div className={styles.gameMeta}>
+                <span className={styles.gameCategory}>{game.category}</span>
+                <button className={styles.playButton}>Play</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
+
+export default Gamify;
